@@ -1,7 +1,5 @@
 package com.example.snake.classes;
 
-import java.util.Objects;
-
 public class Coordinate {
 
     private int x;

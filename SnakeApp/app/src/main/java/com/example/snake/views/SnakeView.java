@@ -20,21 +20,24 @@ public class SnakeView extends View {
     public SnakeView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
     }
-    public void setSnakeViewMap(TileType[][] map) { this.snakeViewMap = map; }
+
+    public void setSnakeViewMap(TileType[][] map) {
+        this.snakeViewMap = map;
+    }
 
     @SuppressLint("DrawAllocation")
     @Override
-    protected void onDraw(Canvas canvas){
+    protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
 
-        if(snakeViewMap != null){
+        if (snakeViewMap != null) {
             float tileSizeX = canvas.getWidth() / snakeViewMap.length;
             float tileSizeY = canvas.getHeight() / snakeViewMap[0].length;
 
             float cellRadius = Math.max(tileSizeX, tileSizeY) / 2;
-            for(int x = 0; x<snakeViewMap.length; x++) {
+            for (int x = 0; x < snakeViewMap.length; x++) {
                 for (int y = 0; y < snakeViewMap[0].length; y++) {
-                    switch (snakeViewMap[x][y]){
+                    switch (snakeViewMap[x][y]) {
 
                         case Nothing:
                             mPaint.setColor(Color.BLACK);
@@ -56,7 +59,7 @@ public class SnakeView extends View {
                         canvas.drawRect(x * tileSizeX + tileSizeX / 2f - cellRadius, y * tileSizeY + tileSizeY / 2f + cellRadius, x * tileSizeX + tileSizeX / 2f + cellRadius,y * tileSizeY + tileSizeY / 2f - cellRadius, new Paint(Color.BLACK));
                         canvas.drawCircle(x*tileSizeX + tileSizeX/2f , y*tileSizeY + tileSizeY/2f , cellRadius/2, mPaint);
                     }else{*/
-                     canvas.drawRect(x * tileSizeX + tileSizeX / 2f - cellRadius, y * tileSizeY + tileSizeY / 2f + cellRadius, x * tileSizeX + tileSizeX / 2f + cellRadius,y * tileSizeY + tileSizeY / 2f - cellRadius, mPaint);
+                    canvas.drawRect(x * tileSizeX + tileSizeX / 2f - cellRadius, y * tileSizeY + tileSizeY / 2f + cellRadius, x * tileSizeX + tileSizeX / 2f + cellRadius, y * tileSizeY + tileSizeY / 2f - cellRadius, mPaint);
 
                 }
             }
